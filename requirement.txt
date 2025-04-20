@@ -5,3 +5,5 @@ pydantic
 pydantic-settings
 python-dotenv
 sqlalchemy
+gspread
+oauth2client

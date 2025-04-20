@@ -3,6 +3,7 @@ from datetime import datetime
 from app.config import settings
 from app.db.database import SessionLocal
 from app.db.models import CheckinLog
+from app.messenger.google_sheets import write_to_google_sheet
 
 async def handle_message(sender_id: str, message: dict):
     
@@ -24,6 +25,10 @@ async def handle_message(sender_id: str, message: dict):
     finally:
         db.close()
 
+
+    # 寫入 Google Sheet
+    write_to_google_sheet(sender_id, text)
+    
     # 回應結構
     response = {
         "text": f"Hi! 你打卡的時間是 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"

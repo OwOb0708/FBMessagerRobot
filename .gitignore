@@ -1,0 +1,50 @@
+# Python __pycache__ & compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environment
+.env/
+.venv/
+venv/
+ENV/
+env/
+*.env
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS / Windows 系統檔案
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Log files
+*.log
+
+# credentials and secrets
+credentials.json
+*.secret.json
+*.key.json
+*.pem
+
+# Database (local)
+*.sqlite3
+*.db
+
+# Docker
+*.pid
+*.pid.lock
+
+# Node.js (若專案有 frontend)
+node_modules/
+
+# FastAPI Uvicorn reload cache
+reload.db

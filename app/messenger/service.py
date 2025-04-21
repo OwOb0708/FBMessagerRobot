@@ -5,8 +5,11 @@ from app.db.database import SessionLocal
 from app.db.models import CheckinLog
 from app.messenger.google_sheets import write_to_google_sheet
 
+from zoneinfo import ZoneInfo
+
 async def handle_message(sender_id: str, message: dict):
     
+    taiwan_time = datetime.now(ZoneInfo("Asia/Taipei"))
     text = message.get("text", "")
     
     # 寫入 SQLite
@@ -15,7 +18,7 @@ async def handle_message(sender_id: str, message: dict):
         log = CheckinLog(
             sender_id=sender_id,
             message_text=text,
-            checkin_time=datetime.utcnow()
+            checkin_time=datetime.now(ZoneInfo("Asia/Taipei"))
         )
         db.add(log)
         db.commit()
